@@ -1,6 +1,5 @@
 /* ============================================
-   VivasSimula - Login Page Styles
-   Mesma estética do site principal
+   VivasSimula - Login Page Styles (Light Theme)
    ============================================ */
 
 /* Reset */
@@ -22,7 +21,7 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a1628 0%, #1E3A5F 40%, #132c4a 70%, #0d1f36 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #f0f4f8 70%, #ffffff 100%);
   position: relative;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
@@ -37,9 +36,9 @@ html, body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 20% 50%, rgba(46, 139, 87, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(30, 58, 95, 0.12) 0%, transparent 50%),
-              radial-gradient(circle at 60% 80%, rgba(108, 201, 161, 0.06) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 50%, rgba(46, 139, 87, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(30, 58, 95, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 60% 80%, rgba(108, 201, 161, 0.05) 0%, transparent 50%);
   animation: bgPulse 15s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -64,7 +63,7 @@ html, body {
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(108, 201, 161, 0.12);
+  background: rgba(46, 139, 87, 0.08);
   animation: float linear infinite;
 }
 
@@ -91,14 +90,14 @@ html, body {
 
 /* ============ CARD ============ */
 .login-card {
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 20px;
   padding: 36px 32px;
-  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.3),
-              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 48px rgba(30, 58, 95, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
   animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
 }
@@ -124,19 +123,19 @@ html, body {
   width: 64px;
   height: 64px;
   margin: 0 auto 12px;
-  background: linear-gradient(135deg, #2E8B57, #3aad6e);
+  background: linear-gradient(135deg, #1E3A5F, #2a5a8f);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(46, 139, 87, 0.35);
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.2);
   animation: iconGlow 3s ease-in-out infinite alternate;
   font-size: 1.8rem;
 }
 
 @keyframes iconGlow {
-  from { box-shadow: 0 8px 24px rgba(46, 139, 87, 0.35); }
-  to { box-shadow: 0 8px 36px rgba(46, 139, 87, 0.55); }
+  from { box-shadow: 0 8px 24px rgba(30, 58, 95, 0.2); }
+  to { box-shadow: 0 8px 36px rgba(30, 58, 95, 0.35); }
 }
 
 .login-logo-icon img {
@@ -149,17 +148,17 @@ html, body {
   font-family: 'Playfair Display', serif;
   font-size: 1.75rem;
   font-weight: 700;
-  color: #fff;
+  color: #1E3A5F;
   line-height: 1.2;
 }
 
 .login-brand span {
-  color: #6cc9a1;
+  color: #2E8B57;
 }
 
 .login-subtitle {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: #5a6a7e;
   margin-top: 4px;
   letter-spacing: 0.3px;
 }
@@ -168,7 +167,7 @@ html, body {
 .login-tabs {
   display: flex;
   gap: 4px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 58, 95, 0.05);
   border-radius: 10px;
   padding: 3px;
   margin-bottom: 24px;
@@ -179,7 +178,7 @@ html, body {
   padding: 9px 12px;
   border: none;
   background: transparent;
-  color: rgba(255, 255, 255, 0.45);
+  color: #5a6a7e;
   font-family: 'Outfit', sans-serif;
   font-weight: 600;
   font-size: 0.82rem;
@@ -189,14 +188,14 @@ html, body {
 }
 
 .login-tab.active {
-  background: rgba(46, 139, 87, 0.3);
-  color: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  background: #fff;
+  color: #1E3A5F;
+  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
 }
 
 .login-tab:hover:not(.active) {
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(255, 255, 255, 0.04);
+  color: #1E3A5F;
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* ============ FORMS ============ */
@@ -219,7 +218,7 @@ html, body {
   display: block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.6);
+  color: #1E3A5F;
   margin-bottom: 5px;
   letter-spacing: 0.3px;
 }
@@ -236,7 +235,7 @@ html, body {
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.9rem;
-  opacity: 0.4;
+  opacity: 0.5;
   pointer-events: none;
   transition: opacity 0.3s;
   z-index: 1;
@@ -245,29 +244,30 @@ html, body {
 .form-group input {
   width: 100%;
   padding: 12px 12px 12px 40px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1.5px solid #e2e8f0;
   border-radius: 10px;
-  color: #fff;
+  color: #1a2332;
   font-family: 'Outfit', sans-serif;
   font-size: 0.85rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   outline: none;
+  box-shadow: inset 0 2px 4px rgba(30, 58, 95, 0.02);
 }
 
 .form-group input::placeholder {
-  color: rgba(255, 255, 255, 0.25);
+  color: #8896a6;
 }
 
 .form-group input:focus {
-  border-color: #6cc9a1;
-  background: rgba(255, 255, 255, 0.09);
-  box-shadow: 0 0 0 3px rgba(108, 201, 161, 0.1);
+  border-color: #2E8B57;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
 }
 
 .form-group input:focus ~ .input-icon,
 .form-group input:focus + .input-icon {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 /* Password Toggle */
@@ -278,7 +278,7 @@ html, body {
   transform: translateY(-50%);
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.35);
+  color: #8896a6;
   cursor: pointer;
   font-size: 0.85rem;
   padding: 4px;
@@ -287,14 +287,14 @@ html, body {
 }
 
 .password-toggle:hover {
-  color: rgba(255, 255, 255, 0.75);
+  color: #1E3A5F;
 }
 
 /* ============ SUBMIT BUTTON ============ */
 .login-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #2E8B57, #3aad6e);
+  background: linear-gradient(135deg, #1E3A5F, #2a5a8f);
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -315,13 +315,13 @@ html, body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
   transition: left 0.5s;
 }
 
 .login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.25);
 }
 
 .login-btn:hover::before {
@@ -333,7 +333,7 @@ html, body {
 }
 
 .login-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
   transform: none !important;
   box-shadow: none !important;
@@ -356,16 +356,16 @@ html, body {
 
 .login-message.success {
   display: block;
-  background: rgba(46, 139, 87, 0.15);
-  color: #6cc9a1;
-  border: 1px solid rgba(108, 201, 161, 0.2);
+  background: #e8f5e9;
+  color: #2E8B57;
+  border: 1px solid #c8e6c9;
 }
 
 .login-message.error {
   display: block;
-  background: rgba(220, 53, 69, 0.15);
-  color: #ff7b8a;
-  border: 1px solid rgba(220, 53, 69, 0.2);
+  background: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #ffcdd2;
 }
 
 /* ============ FOOTER ============ */
@@ -373,12 +373,12 @@ html, body {
   text-align: center;
   margin-top: 20px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid #e2e8f0;
 }
 
 .login-footer p {
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.25);
+  color: #8896a6;
 }
 
 /* ============ RESPONSIVE ============ */
@@ -392,6 +392,7 @@ html, body {
   .login-card {
     padding: 28px 22px;
     border-radius: 16px;
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .login-brand {
