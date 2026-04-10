@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  vivasimula:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: vivasimula-app
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    volumes:
+      # Montar assets para atualização fácil (opcional)
+      - ./assets:/usr/share/nginx/html/assets:ro
+    networks:
+      - vivasimula-network
+
+networks:
+  vivasimula-network:
+    driver: bridge

@@ -1,0 +1,111 @@
+/* Estilos de impressão para valores mais legíveis */
+@media print {
+  /* Configurações gerais de impressão */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  body {
+    font-size: 9pt !important;
+  }
+  
+  /* Cards de resumo */
+  .summary-card .value {
+    color: #000 !important;
+    font-weight: 700 !important;
+  }
+  .summary-card .label {
+    color: #333 !important;
+    font-weight: 600 !important;
+  }
+  .summary-card .sub {
+    color: #444 !important;
+  }
+  .summary-card.highlight {
+    background: #1E3A5F !important;
+  }
+  .summary-card.highlight .value,
+  .summary-card.highlight .label,
+  .summary-card.highlight .sub {
+    color: #fff !important;
+  }
+  
+  /* Barra de totais */
+  .total-bar {
+    background: #2E8B57 !important;
+  }
+  .total-bar .total-item .value {
+    color: #fff !important;
+    font-weight: 700 !important;
+  }
+  .total-bar .total-item .label {
+    color: #fff !important;
+    opacity: 1 !important;
+  }
+  
+  /* Flow cards */
+  .flow-item .amount .value {
+    color: #000 !important;
+    font-weight: 600 !important;
+  }
+  .flow-item .info h4 {
+    color: #000 !important;
+  }
+  .flow-item .info p {
+    color: #333 !important;
+  }
+  
+  /* TABELA - MOSTRAR COMPLETA SEM CORTES */
+  .flow-table-container {
+    overflow: visible !important;
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+  }
+  .flow-table-body {
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  .flow-table {
+    page-break-inside: auto !important;
+    break-inside: auto !important;
+    font-size: 8pt !important;
+  }
+  .flow-table thead {
+    display: table-header-group !important;
+  }
+  .flow-table tbody {
+    display: table-row-group !important;
+  }
+  .flow-table tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  .flow-table th,
+  .flow-table td {
+    padding: 4px 6px !important;
+  }
+  .flow-table td {
+    color: #000 !important;
+  }
+  .flow-table th {
+    color: #000 !important;
+    background: #e0e0e0 !important;
+  }
+  .flow-table-toggle {
+    display: none !important;
+  }
+  
+  /* Esconder info box na impressão para dar mais espaço */
+  .info-box {
+    display: none !important;
+  }
+  
+  /* Footer de impressão */
+  footer {
+    position: relative !important;
+    margin-top: 20px !important;
+  }
+}

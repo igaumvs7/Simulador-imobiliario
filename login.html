@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>VivasSimula | Login</title>
+  <meta name="description" content="Acesse o Simulador de Investimento Imobiliário VivasSimula. Faça login ou crie sua conta.">
+  <link rel="shortcut icon" href="assets/logo_fd-removebg-preview (1).png" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+
+<div class="login-page">
+  <!-- Animated Particles -->
+  <div class="particles" id="particles"></div>
+
+  <div class="login-container">
+    <div class="login-card">
+      <!-- Logo -->
+      <div class="login-logo">
+        <div class="login-logo-icon">
+          <img src="assets/logo_fd-removebg-preview (1).png" alt="VivasSimula" onerror="this.style.display='none'; this.parentElement.textContent='🏠';">
+        </div>
+        <div class="login-brand">Vivas<span>Simula</span></div>
+        <div class="login-subtitle">Simulador de Investimento Imobiliário</div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" id="tabLogin" onclick="switchTab('login')">Entrar</button>
+        <button class="login-tab" id="tabRegister" onclick="switchTab('register')">Criar Conta</button>
+      </div>
+
+      <!-- Login Form -->
+      <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label for="loginEmail">E-mail</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📧</span>
+            <input type="email" id="loginEmail" placeholder="seu@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="loginPassword">Senha</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="loginPassword" placeholder="Sua senha" required autocomplete="current-password">
+            <button type="button" class="password-toggle" onclick="togglePassword('loginPassword', this)">👁️</button>
+          </div>
+        </div>
+
+        <div class="login-message" id="loginMessage"></div>
+
+        <button type="submit" class="login-btn" id="loginBtn">Entrar</button>
+      </form>
+
+      <!-- Register Form -->
+      <form class="login-form hidden" id="registerForm" onsubmit="handleRegister(event)">
+        <div class="form-group">
+          <label for="registerName">Nome Completo</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" id="registerName" placeholder="Seu nome completo" required autocomplete="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="registerEmail">E-mail</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📧</span>
+            <input type="email" id="registerEmail" placeholder="seu@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="registerPassword">Senha</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="registerPassword" placeholder="Mínimo 4 caracteres" required minlength="4" autocomplete="new-password">
+            <button type="button" class="password-toggle" onclick="togglePassword('registerPassword', this)">👁️</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="registerConfirm">Confirmar Senha</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔐</span>
+            <input type="password" id="registerConfirm" placeholder="Repita a senha" required minlength="4" autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="login-message" id="registerMessage"></div>
+
+        <button type="submit" class="login-btn" id="registerBtn">Criar Conta</button>
+      </form>
+
+      <!-- Footer -->
+      <div class="login-footer">
+        <p>Feito por Igor Vivas · 📞 (85) 99262-0981</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script>
+  // Se já está logado, redirecionar para o simulador
+  if (Auth.isLoggedIn()) {
+    window.location.href = 'index.html';
+  }
+
+  // ============ Tabs ============
+  function switchTab(tab) {
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const tabLogin = document.getElementById('tabLogin');
+    const tabRegister = document.getElementById('tabRegister');
+
+    // Limpar mensagens
+    document.getElementById('loginMessage').className = 'login-message';
+    document.getElementById('registerMessage').className = 'login-message';
+
+    if (tab === 'login') {
+      loginForm.classList.remove('hidden');
+      registerForm.classList.add('hidden');
+      tabLogin.classList.add('active');
+      tabRegister.classList.remove('active');
+    } else {
+      loginForm.classList.add('hidden');
+      registerForm.classList.remove('hidden');
+      tabLogin.classList.remove('active');
+      tabRegister.classList.add('active');
+    }
+  }
+
+  // ============ Login ============
+  function handleLogin(e) {
+    e.preventDefault();
+    const email = document.getElementById('loginEmail').value;
+    const password = document.getElementById('loginPassword').value;
+    const msgEl = document.getElementById('loginMessage');
+    const btn = document.getElementById('loginBtn');
+
+    btn.disabled = true;
+    btn.textContent = 'Entrando...';
+
+    setTimeout(() => {
+      const result = Auth.login(email, password);
+
+      if (result.success) {
+        msgEl.className = 'login-message success';
+        msgEl.textContent = '✅ ' + result.message;
+        setTimeout(() => {
+          window.location.href = 'index.html';
+        }, 800);
+      } else {
+        msgEl.className = 'login-message error';
+        msgEl.textContent = '❌ ' + result.message;
+        btn.disabled = false;
+        btn.textContent = 'Entrar';
+      }
+    }, 500);
+  }
+
+  // ============ Register ============
+  function handleRegister(e) {
+    e.preventDefault();
+    const name = document.getElementById('registerName').value;
+    const email = document.getElementById('registerEmail').value;
+    const password = document.getElementById('registerPassword').value;
+    const confirm = document.getElementById('registerConfirm').value;
+    const msgEl = document.getElementById('registerMessage');
+    const btn = document.getElementById('registerBtn');
+
+    if (password !== confirm) {
+      msgEl.className = 'login-message error';
+      msgEl.textContent = '❌ As senhas não coincidem.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Criando conta...';
+
+    setTimeout(() => {
+      const result = Auth.register(name, email, password);
+
+      if (result.success) {
+        msgEl.className = 'login-message success';
+        msgEl.textContent = '✅ ' + result.message;
+        setTimeout(() => {
+          switchTab('login');
+          document.getElementById('loginEmail').value = email;
+          document.getElementById('loginPassword').focus();
+        }, 1000);
+      } else {
+        msgEl.className = 'login-message error';
+        msgEl.textContent = '❌ ' + result.message;
+      }
+
+      btn.disabled = false;
+      btn.textContent = 'Criar Conta';
+    }, 500);
+  }
+
+  // ============ Toggle Password ============
+  function togglePassword(inputId, btn) {
+    const input = document.getElementById(inputId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      btn.textContent = '🙈';
+    } else {
+      input.type = 'password';
+      btn.textContent = '👁️';
+    }
+  }
+
+  // ============ Floating Particles ============
+  function createParticles() {
+    const container = document.getElementById('particles');
+    const count = 15;
+
+    for (let i = 0; i < count; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'particle';
+      const size = Math.random() * 5 + 2;
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = Math.random() * 100 + '%';
+      particle.style.animationDuration = (Math.random() * 15 + 12) + 's';
+      particle.style.animationDelay = (Math.random() * 8) + 's';
+      container.appendChild(particle);
+    }
+  }
+
+  createParticles();
+</script>
+
+</body>
+</html>

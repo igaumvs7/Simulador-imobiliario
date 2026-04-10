@@ -1,0 +1,31 @@
+# Dependências
+node_modules/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+
+# Dados sensíveis de login (localStorage é no navegador, mas caso use arquivos)
+users_data/
+*.db
+*.sqlite
+
+# Build
+dist/
+build/
+
+# Variáveis de ambiente
+.env
+.env.local
+.env.production
