@@ -21,7 +21,8 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 40%, #f0f4f8 70%, #ffffff 100%);
+  /* FUNDO AZUL ROYAL */
+  background: linear-gradient(135deg, #1a3a6e 0%, #2851a3 40%, #3d6fd9 70%, #4169E1 100%);
   position: relative;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
@@ -36,9 +37,9 @@ html, body {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 20% 50%, rgba(65, 105, 225, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 80% 20%, rgba(30, 58, 95, 0.05) 0%, transparent 50%),
-              radial-gradient(circle at 60% 80%, rgba(100, 149, 237, 0.05) 0%, transparent 50%);
+  background: radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
+              radial-gradient(circle at 60% 80%, rgba(218, 165, 32, 0.08) 0%, transparent 50%);
   animation: bgPulse 15s ease-in-out infinite alternate;
   pointer-events: none;
 }
@@ -63,7 +64,7 @@ html, body {
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: rgba(65, 105, 225, 0.08);
+  background: rgba(212, 175, 55, 0.15);
   animation: float linear infinite;
 }
 
@@ -90,13 +91,13 @@ html, body {
 
 /* ============ CARD ============ */
 .login-card {
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 1);
   border-radius: 20px;
   padding: 36px 32px;
-  box-shadow: 0 24px 48px rgba(30, 58, 95, 0.08),
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.2),
               inset 0 1px 0 rgba(255, 255, 255, 0.8);
   animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
@@ -123,19 +124,20 @@ html, body {
   width: 64px;
   height: 64px;
   margin: 0 auto 12px;
-  background: linear-gradient(135deg, #1E3A5F, #2a5a8f);
+  /* Gradiente azul royal para o ícone */
+  background: linear-gradient(135deg, #2851a3, #4169E1);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.2);
+  box-shadow: 0 8px 24px rgba(65, 105, 225, 0.3);
   animation: iconGlow 3s ease-in-out infinite alternate;
   font-size: 1.8rem;
 }
 
 @keyframes iconGlow {
-  from { box-shadow: 0 8px 24px rgba(30, 58, 95, 0.2); }
-  to { box-shadow: 0 8px 36px rgba(30, 58, 95, 0.35); }
+  from { box-shadow: 0 8px 24px rgba(65, 105, 225, 0.3); }
+  to { box-shadow: 0 8px 36px rgba(65, 105, 225, 0.5); }
 }
 
 .login-logo-icon img {
@@ -152,9 +154,10 @@ html, body {
   line-height: 1.2;
 }
 
-/* AZUL ROYAL para "Simula" */
+/* AMARELO/DOURADO para "Simula" */
 .login-brand span {
-  color: #4169E1;
+  color: #D4A84B;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .login-subtitle {
@@ -168,7 +171,7 @@ html, body {
 .login-tabs {
   display: flex;
   gap: 4px;
-  background: rgba(30, 58, 95, 0.05);
+  background: rgba(65, 105, 225, 0.08);
   border-radius: 10px;
   padding: 3px;
   margin-bottom: 24px;
@@ -190,12 +193,12 @@ html, body {
 
 .login-tab.active {
   background: #fff;
-  color: #1E3A5F;
-  box-shadow: 0 2px 8px rgba(30, 58, 95, 0.08);
+  color: #4169E1;
+  box-shadow: 0 2px 8px rgba(65, 105, 225, 0.15);
 }
 
 .login-tab:hover:not(.active) {
-  color: #1E3A5F;
+  color: #4169E1;
   background: rgba(255, 255, 255, 0.5);
 }
 
@@ -261,9 +264,9 @@ html, body {
 }
 
 .form-group input:focus {
-  border-color: #4169E1;
+  border-color: #D4A84B;
   background: #ffffff;
-  box-shadow: 0 0 0 3px rgba(65, 105, 225, 0.1);
+  box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.15);
 }
 
 .form-group input:focus ~ .input-icon,
@@ -288,14 +291,15 @@ html, body {
 }
 
 .password-toggle:hover {
-  color: #1E3A5F;
+  color: #4169E1;
 }
 
 /* ============ SUBMIT BUTTON ============ */
 .login-btn {
   width: 100%;
   padding: 12px;
-  background: linear-gradient(135deg, #1E3A5F, #2a5a8f);
+  /* Gradiente azul royal para o botão */
+  background: linear-gradient(135deg, #2851a3, #4169E1);
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -316,13 +320,13 @@ html, body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
   transition: left 0.5s;
 }
 
 .login-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(30, 58, 95, 0.25);
+  box-shadow: 0 6px 20px rgba(65, 105, 225, 0.35);
 }
 
 .login-btn:hover::before {
@@ -393,7 +397,7 @@ html, body {
   .login-card {
     padding: 28px 22px;
     border-radius: 16px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
   }
 
   .login-brand {
